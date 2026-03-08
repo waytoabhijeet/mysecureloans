@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>My Secure Loans | Fast & Trusted Loan Services</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {margin:0;font-family:Arial;background:#f5f7fa;}
+header {background:#0A3D62;color:white;padding:20px 40px;display:flex;justify-content:space-between;align-items:center;}
+nav a {color:white;text-decoration:none;margin:0 15px;}
+.hero {background:#0A3D62;color:white;padding:80px 20px;text-align:center;}
+.hero h1 {font-size:40px;margin-bottom:10px;}
+.btn {background:#1abc9c;color:white;padding:12px 25px;border:none;text-decoration:none;display:inline-block;margin-top:15px;}
+.section {padding:60px 20px;text-align:center;}
+.cards {display:flex;flex-wrap:wrap;justify-content:center;}
+.card {background:white;margin:15px;padding:25px;width:250px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+footer {background:#0A3D62;color:white;text-align:center;padding:30px;}
+input,select {width:100%;padding:10px;margin:8px 0;}
+form {max-width:500px;margin:auto;background:white;padding:30px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+.whatsapp {position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:15px;border-radius:50%;font-size:20px;text-decoration:none;}
+</style>
+</head>
+
+<body>
+
+<header>
+<div><b>My Secure Loans</b></div>
+<nav>
+<a href="#">Home</a>
+<a href="#services">Services</a>
+<a href="#apply">Apply</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="hero">
+<h1>Fast & Secure Loan Solutions</h1>
+<p>Personal | Business | Home | Gold Loans</p>
+<a href="#apply" class="btn">Apply Now</a>
+</div>
+
+<div class="section" id="services">
+<h2>Our Loan Services</h2>
+<div class="cards">
+<div class="card"><h3>Personal Loan</h3><p>Up to ₹5 Lakhs</p></div>
+<div class="card"><h3>Business Loan</h3><p>Up to ₹25 Lakhs</p></div>
+<div class="card"><h3>Home Loan</h3><p>Lowest Rates</p></div>
+<div class="card"><h3>Gold Loan</h3><p>Instant Approval</p></div>
+</div>
+</div>
+
+<div class="section" style="background:#eef2f7;">
+<h2>Track Your Loan Application</h2>
+<input type="text" id="trackId" placeholder="Enter your Application ID">
+<button class="btn" onclick="trackLoan()">Track Status</button>
+<div id="trackResult"></div>
+</div>
+
+<div class="section" style="background:#eef2f7;">
+<h2>EMI Calculator</h2>
+<input type="number" id="amount" placeholder="Loan Amount">
+<input type="number" id="rate" placeholder="Interest Rate (%)">
+<input type="number" id="tenure" placeholder="Tenure (Months)">
+<button class="btn" onclick="calculateEMI()">Calculate EMI</button>
+<h3 id="emiResult"></h3>
+</div>
+
+<div class="section" id="apply">
+<h2>Apply for Loan</h2>
+<form name="loan-application" method="POST" action="/loans">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="text" name="phone" placeholder="Phone Number" required>
+<input type="email" name="email" placeholder="Email Address" required>
+<select name="loan-type">
+<option>Personal Loan</option>
+<option>Business Loan</option>
+<option>Home Loan</option>
+<option>Gold Loan</option>
+</select>
+<input type="number" name="amount" placeholder="Loan Amount Required">
+<input type="number" name="income" placeholder="Monthly Income">
+<button type="submit" class="btn">Submit Application</button>
+</form>
+</div>
+
+<div class="section" id="contact">
+<h2>Contact Us</h2>
+<p>Email: <strong>support@mysecureloans.com</strong></p>
+<p>Phone: <strong>+91-9999-999-999</strong></p>
+<p>Address: <strong>Mumbai, India</strong></p>
+<p>Business Hours: Mon-Fri 9AM-6PM IST</p>
+</div>
+
+<footer>
+<p>© 2026 My Secure Loans. All Rights Reserved.</p>
+<p>This website is not a bank. We provide loan assistance services.</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/919999999999" title="Chat on WhatsApp">W</a>
+
+<script>
+function calculateEMI(){
+var P = document.getElementById("amount").value;
+var R = document.getElementById("rate").value/1200;
+var N = document.getElementById("tenure").value;
+var EMI = (P*R*Math.pow(1+R,N))/(Math.pow(1+R,N)-1);
+document.getElementById("emiResult").innerHTML = "Monthly EMI: ₹ " + EMI.toFixed(2);
+}
+
+function trackLoan(){
+var applicationId = document.getElementById("trackId").value;
+if (!applicationId) {
+  alert("Please enter your Application ID");
+  return;
+}
+window.location.href = "/loans/track/" + applicationId;
+}
+</script>
+
+</body>
+</html>

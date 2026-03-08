@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Application Submitted</title>
+  <style>
+    body {margin:0;font-family:Arial;background:#f5f7fa;}
+    .container {background:white;margin:50px auto;padding:40px;width:500px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1);text-align:center;}
+    h1 {color:#1abc9c;}
+    .details {margin:20px 0;padding:15px;background:#f8f9fa;border-radius:4px;text-align:left;}
+    .btn {background:#0A3D62;color:white;padding:12px 25px;border:none;text-decoration:none;display:inline-block;margin-top:20px;border-radius:4px;cursor:pointer;text-decoration:none;}
+    .btn:hover {background:#051c31;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✓ Application Submitted Successfully</h1>
+    <p>Thank you, <strong><%= name %></strong>!</p>
+    <p>Your <strong><%= loanType %></strong> loan application for <strong>₹<%= amount %></strong> has been received.</p>
+    
+    <div class="details">
+      <p><strong>Application ID:</strong> <%= applicationId %></p>
+      <p>Use this ID to track your application status on our home page.</p>
+      <p style="margin-top:15px;color:#666;">A confirmation email has been sent to your registered email address.</p>
+    </div>
+    
+    <p style="margin-top:20px;color:#333;">Our team will review your application and contact you within 24-48 hours.</p>
+    
+    <a href="/" class="btn">Back to Home</a>
+  </div>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Loans</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <h1>All Loans</h1>
+  <a href="/loans/new">Create New Loan</a>
+  <ul>
+    <% loans.forEach(function(loan) { %>
+      <li>
+        <a href="/loans/<%= loan.id %>"><%= loan.borrower %> - $<%= loan.amount %></a>
+      </li>
+    <% }); %>
+  </ul>
+</body>
+</html>

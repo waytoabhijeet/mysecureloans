@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>New Loan</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <h1>Create New Loan</h1>
+  <form action="/loans" method="post">
+    <label>Borrower: <input type="text" name="borrower" required></label><br>
+    <label>Amount: <input type="number" name="amount" required></label><br>
+    <label>Term (months): <input type="number" name="term" required></label><br>
+    <button type="submit">Save</button>
+  </form>
+  <a href="/loans">Back to list</a>
+</body>
+</html>
