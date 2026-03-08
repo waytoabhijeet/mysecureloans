@@ -14,6 +14,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/mysecurel
   .then(() => console.log('MongoDB connected'))
   .catch(err => console.log('MongoDB connection error:', err));
 
+// Trust proxy - needed for Render.com deployment
+app.set('trust proxy', 1);
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
